@@ -1,0 +1,16 @@
+<div class="container well">
+    <div [ngStyle]="{'color': color}">
+        <div class="row">
+            <div id="quote">{{quote}}</div>
+        </div>
+        <div class="row">
+            <div id="author" class="pull-left">{{author}}</div>
+        </div>
+    </div>
+    <div class="row">
+        <button class="btn btn-primary btn-default pull-right" (click)="getNewQuote()">New Quote</button>
+    </div>
+    <div class="row">
+        <div id="time" class="pull-right">{{dateTime|date:'y MMM d'}} {{dateTime|date:'hh:mm:ss a'}}</div>
+    </div>
+</div>

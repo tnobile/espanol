@@ -1,4 +1,6 @@
-export const QUOTES =[
+import {Quote} from './quote';
+
+export const QUOTES : Quote[] =[
     {"quote":"Life isn’t about getting and having, it’s about giving and being.", "name":"Kevin Kruse"},
     {"quote":"Whatever the mind of man can conceive and believe, it can achieve.", "name":"Napoleon Hill"},
     {"quote":"Strive not to be a success, but rather to be of value.", "name":"Albert Einstein"},

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { QUOTES} from '../mock-quotes';
+import { QUOTES } from '../mock-quotes';
+import { Quote } from '../quote';
 
 @Component({
   selector: 'app-quotes',
@@ -10,29 +11,28 @@ export class QuotesComponent implements OnInit {
 
   constructor() { }
 
-  colors = ["#c72923","#116063","#57aefc","#ed674d","#9c5b93", "#4dd3ed", "#000000", "#55515e"];
+  private colors = ["#c72923", "#116063", "#57aefc", "#ed674d", "#9c5b93", "#4dd3ed", "#000000", "#55515e"];
 
-  quote: string = "";
-  author: string = "";
+  currentQuote: Quote;
   dateTime: Date = new Date();
   quotes = QUOTES;
   id: number;
   color: string = "white";
 
   ngOnInit() {
+    this.getNewQuote();
   }
 
-  getNewQuote(){
+  getNewQuote() {
     console.log("querying...");
     this.dateTime = new Date();
 
     this.id = Math.floor(Math.random() * this.quotes.length);
-    this.quote = this.quotes[this.id].quote;
-    this.author = this.quotes[this.id].name;
+    this.currentQuote = this.quotes[this.id];
     this.color = this.getRandomColor();
   }
 
-  getRandomColor(){
+  getRandomColor() {
     return this.colors[Math.floor(Math.random() * this.colors.length)];
   }
 }

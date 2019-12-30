@@ -1,10 +1,10 @@
 <div class="container well">
     <div [ngStyle]="{'color': color}">
         <div class="row">
-            <div id="quote">{{quote}}</div>
+            <div id="quote">{{currentQuote.quote}}</div>
         </div>
         <div class="row">
-            <div id="author" class="pull-left">{{author}}</div>
+            <div id="author" class="pull-left">{{currentQuote.name}}</div>
         </div>
     </div>
     <div class="row">

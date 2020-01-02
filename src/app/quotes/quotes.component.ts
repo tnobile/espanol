@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 //import { QUOTES } from '../mock-quotes';
 import { Quote } from '../quote';
-import { QuoteService } from "../quote.service";
+import { QuoteService } from '../quote.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-quotes',
@@ -14,20 +15,21 @@ export class QuotesComponent implements OnInit {
 
   currentQuote: Quote;
   dateTime: Date = new Date();
-  quotes: Quote[];
+  quotes: Quote[] = [];
   id: number;
   color: string = "white";
 
-  constructor(private quoteService: QuoteService) {
+  constructor(private quoteService: QuoteService, private messageService: MessageService) {
   }
 
   ngOnInit() {
+    this.quotes[0] = { "name": "wise man", "quote": "A quien madruga, Dios le ayuda", "id": 0 };
+
     this.getQuotes();
     this.getNewQuote();
   }
 
   getNewQuote() {
-    console.log("querying...");
     this.dateTime = new Date();
 
     this.id = Math.floor(Math.random() * this.quotes.length);
@@ -37,7 +39,10 @@ export class QuotesComponent implements OnInit {
 
   getQuotes() {
     this.quoteService.getQuotes()
-        .subscribe(quotes => this.quotes = quotes);
+      .subscribe(quotes => {
+        this.quotes = quotes;
+        this.messageService.add(`Got ${this.quotes.length} quotes`);
+      });
   }
 
   getRandomColor() {

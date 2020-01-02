@@ -10,7 +10,7 @@ export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const quotes = [
       { "id": 1, "quote": "Life isn’t about getting and having, it’s about giving and being.", "name": "Kevin Kruse" },
-      { "quote": "Whatever the mind of man can conceive and believe, it can achieve.", "name": "Napoleon Hill" },
+      { "id": 2, "quote": "Whatever the mind of man can conceive and believe, it can achieve.", "name": "Napoleon Hill" },
       { "quote": "Strive not to be a success, but rather to be of value.", "name": "Albert Einstein" },
       { "quote": "Two roads diverged in a wood, and I—I took the one less traveled by, And that has made all the difference.", "name": "Robert Frost" },
       { "quote": "I attribute my success to this: I never gave or took any excuse.", "name": "Florence Nightingale" },

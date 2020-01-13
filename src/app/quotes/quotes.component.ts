@@ -23,7 +23,7 @@ export class QuotesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.quotes[0] = { "name": "wise man", "quote": "A quien madruga, Dios le ayuda", "id": 0 };
+    this.quotes[0] = { "name": "wise man", "quote": 'A quien madruga, Dios le ayuda', "id": 0 };
 
     this.getQuotes();
     this.getNewQuote();
@@ -38,10 +38,12 @@ export class QuotesComponent implements OnInit {
   }
 
   getQuotes() {
-    this.quoteService.getQuotes()
+    this.quoteService.getQuotes2()
       .subscribe(quotes => {
-        this.quotes = quotes;
-        this.messageService.add(`Got ${this.quotes.length} quotes`);
+        if (quotes.length > 0) {
+          this.quotes = quotes;
+          this.messageService.add(`Got ${this.quotes.length} quotes`);
+        }
       });
   }
 

@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Random Quote Machine';
+  title = 'Random Quote Machine in Español';
 }
